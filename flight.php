@@ -6,26 +6,26 @@
         public $DayOfFlight;
 
         function flight($airport, $terminal, $flightTime, $dayOfFlight) {
-           $Airport = $airport;
-           $Terminal = $terminal;
-           $FlightTime = $flightTime;
-           $DayOfFlight = $dayOfFlight;
+           $this->Airport = $airport;
+           $this->Terminal = $terminal;
+           $this->FlightTime = $flightTime;
+           $this->DayOfFlight = $dayOfFlight;
         }
 
         function get_Airport() {
-           return $Airport;
+           return $this->Airport;
         }
 
         function get_Terminal() {
-           return $Terminal;
+           return $this->Terminal;
         }
 
         function get_FlightTime() {
-           return $FlightTime;
+           return $this->FlightTime;
         }
 
         function get_DayOfFlight() {
-           return $DayOfFlight;
+           return $this->DayOfFlight;
         }
 
    }

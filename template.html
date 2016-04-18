@@ -4,7 +4,7 @@
      Class:
  -->
 <html>
-     <head>
+    <head>
           <title>Airport Security </title>
           <meta name="viewport" content="width=device-width, initial-scale=1">
           <link rel="stylesheet" href="jquery.mobile-1.4.5.min.css" />
@@ -12,9 +12,10 @@
            src="jquery-2.2.0.min.js"></script>
           <script type="text/javascript"
            src="jquery.mobile-1.4.5.min.js"></script>
-     </head>
-     <body>
-           <!--This is the format for comments. Also this body section
+           <link rel="stylesheet" href="styles.css"/>
+    </head>
+    <!-- <body>
+           This is the format for comments. Also this body section
                is where you will put the form tag stuff. Also when you're
                looking into the form tag remember our method is going to 
                equal post and our action will equal whatever you name the
@@ -24,7 +25,50 @@
                these <body> tags. That means do the <?php ... ?> 
                like you did for the classes. And don't forget to 
                include our classes.php inside the php tags like the link
-               I sent you tells you to do. If you have any questions ask me.--> 
+               I sent you tells you to do. If you have any questions ask me.
           
-     </body>
-</html> 
+     </body>-->
+     <!DOCTYPE html>
+  <body style="background-color: lightgrey;">
+    <div style="background-color: rgb(0, 80, 116); color:white; padding:5px; margin:30px">
+    <h1 style="text-align:center; font-family:Arial;"> Airport Security Wait Times </h1>
+    </div>
+
+    <p style="text-align:center;"> Enter the airport name or code and the terminal or concourse. Then choose a day of the week and a time range of the flight.  </p>
+
+    <form style="text-align:center;" action="output.php" method="post">
+      <div id="container">
+        <div class="ribbon both_ribbon">
+        </div>
+        Airport: <br>
+        <input type="text" name ="Airport" value="" style="border: 1px solid black;">
+        <br><br>
+        Terminal or Concourse: <br>
+        <input type="text" name="Terminal" value="" style="border: 1px solid black;">
+        <br><br>
+        Day of Flight: <br>
+        <select name="DayOfFlight" style="width:150px;">
+          <option value="Monday">Monday</option>
+          <option value="Tuesday">Tuesday</option>
+          <option value="Wednesday">Wednesday</option>
+          <option value="Thursday">Thursday</option>
+          <option value="Friday">Friday</option>
+          <option value="Saturday">Saturday</option>
+          <option value="Sunday">Sunday</option>
+        </select>
+        <br><br>
+        Flight Time: <br>
+        <select name="FlightTime" style="width:150px;">
+          <option value="12:00AM - 11:00AM">12:00AM - 11:00AM</option>
+          <option value="11:00AM - 4:00PM">11:00AM - 4:00PM</option>
+          <option value="4:00PM - 12:00AM">4:00PM - 12:00AM</option>
+        </select>
+        <br><br>
+
+        <input type="submit" value="Submit" style="width:75px;">
+        <!--<button type="button" onclick="window.alert(WaitTimesPage)">Input Wait Time</button>-->
+      </div>
+    </form>
+
+  </body>
+</html>
