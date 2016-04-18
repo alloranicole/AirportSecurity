@@ -4,13 +4,15 @@
    class clock {
 
       var $sTime;
-      var $eTime;	
+      var $eTime;
+      
+      $cutOff=true;
       
       function set_endTime($endTime){
-      	 $endTime=eTime;
+      	 $this->etime = $endTime;
       }
 
-      function initialize_startTime($startTime){
+      function set_startTime($startTime){
          $this->sTime = $startTime;
       }
 
@@ -18,8 +20,12 @@
 	 $totalWaitTime=endTime-startTime;
       }
       
+      if($totalWaitTime > 200)
+      	 $cutOff=false;
+      
       function get_totalWaitTime(){
-	 return $this->totalWaitTime;
+      	 if($cutOff==true)
+	    return $this->totalWaitTime;
       }
    }
 
