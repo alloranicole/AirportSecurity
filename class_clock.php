@@ -7,7 +7,7 @@
       var $eTime;	
       
       function set_endTime($endTime){
-      	 eTime=$endTime;
+      	 $endTime=eTime;
       }
 
       function initialize_startTime($startTime){
@@ -15,7 +15,7 @@
       }
 
       function set_totalWaitTime($totalWaitTime){
-	 endTime-startTime=$totalWaitTime;
+	 $totalWaitTime=endTime-startTime;
       }
       
       function get_totalWaitTime(){
