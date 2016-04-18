@@ -4,9 +4,13 @@
    class clock {
 
       var $sTime;
-      var $endTime;	
+      var $eTime;	
+      
+      function set_endTime($endTime){
+      	 eTime=$endTime;
+      }
 
-      function initialize_start_time($startTime){
+      function initialize_startTime($startTime){
          $this->sTime = $startTime;
       }
 
