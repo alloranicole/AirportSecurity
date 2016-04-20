@@ -12,7 +12,9 @@
            src="jquery-2.2.0.min.js"></script>
           <script type="text/javascript"
            src="jquery.mobile-1.4.5.min.js"></script>
-           <link rel="stylesheet" href="styles.css"/>
+          <script type="text/javascript" 
+           src="airport.js"></script>
+          <link rel="stylesheet" href="styles.css"/>
     </head>
     <!-- <body>
            This is the format for comments. Also this body section
@@ -36,22 +38,22 @@
 
     <p style="text-align:center;"> Enter the airport name or code and the terminal or concourse. Then choose a day of the week and a time range of the flight.  </p>
 
-    <form style="text-align:center;" action="output.php" method="post">
+    <form name=airport style="text-align:center;" action="output.php" method="post">
       <div id="container">
         <div class="ribbon both_ribbon">
         </div>
         Airport: <br>
-        <select name="Airport">
+        <select name="Airport" onchange="getTerminals(this);">
+          <option value=""></option>
           <option value="BNA">Nashville International Airport</option>
           <option value="GSO">Piedmont Triad International Airport</option>
           <option value="CLT">Charlotte Douglas International Airport</option>
         </select>
         <br><br>
-        Terminal or Concourse: <br>
-        <input type="text" name="Terminal" value="" style="border: 1px solid black;">
-        <br><br>
+        <div id="terminals"></div>
         Day of Flight: <br>
-        <select name="DayOfFlight" style="width:150px;">
+        <select name="DayOfFlight">
+          <option value=""></option>
           <option value="Monday">Monday</option>
           <option value="Tuesday">Tuesday</option>
           <option value="Wednesday">Wednesday</option>
@@ -62,7 +64,8 @@
         </select>
         <br><br>
         Flight Time: <br>
-        <select name="FlightTime" style="width:150px;">
+        <select name="FlightTime">
+          <option value=""></option>
           <option value="12:00AM - 11:00AM">12:00AM - 11:00AM</option>
           <option value="11:00AM - 4:00PM">11:00AM - 4:00PM</option>
           <option value="4:00PM - 12:00AM">4:00PM - 12:00AM</option>
@@ -70,7 +73,7 @@
         <br><br>
 
         <input type="submit" value="Submit" style="width:75px;">
-        <!--<button type="button" onclick="window.alert(WaitTimesPage)">Input Wait Time</button>-->
+        <input type="button" onclick="waitTime(document.airport);" value="Input Wait Time">
       </div>
     </form>
 
