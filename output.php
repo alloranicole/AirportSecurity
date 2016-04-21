@@ -1,4 +1,4 @@
-ls<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
        <title>Airport Security Wait Time</title>
