@@ -35,7 +35,11 @@
              $query->disconnectDB();
 
             //Say for instance you saved the wait time in $wait, to display it:
+<<<<<<< HEAD
 
+=======
+ 
+>>>>>>> 17430a3b6bee239e3db6352cc978a5bd078daed1
             //You can also echo html so it is displayed a certain way, like:
 
             echo "<h1>The wait time will be around ".$wait." minutes</h1>";
