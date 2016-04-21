@@ -16,7 +16,7 @@
            logMsg(json_encode($terminals));
            echo json_encode($terminals);
        }else{
-           echo json_encode("Sorry, no records were found.");
+           echo json_encode("<br>");
        }
            disconnectDB($dbconn);
      }else{
