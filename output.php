@@ -1,4 +1,4 @@
-ls<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
        <title>Airport Security Wait Time</title>
@@ -10,7 +10,7 @@ ls<!DOCTYPE html>
          src="jquery.mobile-1.4.5.min.js"></script>
 </head>
 <body>
-  <?php 
+  <?php
           include("classes.php");
           if($_SERVER["REQUEST_METHOD"]=="POST"){
              $airport = cleanInput($_POST["Airport"]);
@@ -21,32 +21,27 @@ ls<!DOCTYPE html>
              //Create a flight class variable and input all this data in the 
              //Constructor
 
-             flight $flightInfo; 
-             $this->flightInfo->_construct($airport, $terminal, $flightTime, $flightDay);
-
+             $flightInfo = new flight($airport, $terminal, $flightTime, $flightDay);
 
 
              //Then call the query class and send it the flight variable
-             query->_construct(flight $flightInfo);
+             $query = new query($flightInfo);
 
             //Then follow this order of the query class : connectToDB, 
             //makeQuery (this one returns the wait time), and disconnectDB
 
-            var $wait;
-             query->connectToDB();
-             $wait = query->makeQuery();
-             query->disconnectDB();
+             $query->connectToDB();
+             $wait = $query->makeQuery();
+             $query->disconnectDB();
 
             //Say for instance you saved the wait time in $wait, to display it:
- 
-            echo $wait; 
-          
+
             //You can also echo html so it is displayed a certain way, like:
 
-            echo "<h1>The wait time will be around "+$wait+" minutes</h1>";
+            echo "<h1>The wait time will be around ".$wait." minutes</h1>";
         }else{
             echo "A non Post request";
-        }             
+        }
         ?>
 </body>
 </html>
