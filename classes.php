@@ -47,11 +47,10 @@
                   $day = $this->flight->get_DayOfFlight();
                   $time = $this->flight->get_FlightTime();
                   $this->query = "Select AW.WaitTime from AverageWait as AW, AirportTerminals as AT, DateTime as DT where AW.AirTermID = AT.AirTermID and AW.DateTimeID = DT.DateTimeID and AT.AirportCode = '$airport' and AT.Terminal = '$terminal' and DT.Weekday = '$day' and DT.DayTime = '$time';";
-                   logMsg($this->query);
                    $this->result = $this->dbconn->query($this->query);
                    $myrow = $this->result->fetch_array();
-                   logMsg($myrow['WaitTime']);
-                   return $myrow['WaitTime'];
+                   $wTime = $myrow['WaitTime'];
+                   return $wTime;
                  }
                  function disconnectDB(){
                    disconnectDB($this->dbconn);
