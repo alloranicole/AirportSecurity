@@ -11,8 +11,8 @@
 </head>
 <body>
     <div style="background-color: rgb(0, 80, 116); color:white; padding:5px; margin:30px">
-      <h1 style="text-align:center; font-family:Arial;"> Security Checkpoint Wait Time </h1>
-    </div>
+     <h1 style="text-align:center; font-family:Arial;"> Security Checkpoint Wait Time </h1>
+   </div>
   <?php
           include("classes.php");
           if($_SERVER["REQUEST_METHOD"]=="POST"){
