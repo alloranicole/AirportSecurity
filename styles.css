@@ -15,7 +15,7 @@ select {
 }
 
 #container{
-	width: 560px;
+	width: 60vw;
 	margin: 20px auto ;
 	background: #fff;
 	border: 1px solid rgba(0,0,0,.3);
@@ -65,5 +65,7 @@ div.both_ribbon::after{
 	content: "";
 	border-bottom: 10px solid transparent;
 	border-left: 10px solid rgb(0, 80, 116);
-
 }	
+.floating-box {
+	float: center;
+}

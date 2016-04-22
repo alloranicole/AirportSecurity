@@ -10,6 +10,9 @@
          src="jquery.mobile-1.4.5.min.js"></script>
 </head>
 <body>
+    <div style="background-color: rgb(0, 80, 116); color:white; padding:5px; margin:30px">
+      <h1 style="text-align:center; font-family:Arial;"> Security Checkpoint Wait Time </h1>
+    </div>
   <?php
           include("classes.php");
           if($_SERVER["REQUEST_METHOD"]=="POST"){
@@ -20,7 +23,9 @@
 
              //Create a flight class variable and input all this data in the 
              //Constructor
-
+  // ?>
+  //Stuff
+  // <?php
              $flightInfo = new flight($airport, $terminal, $flightTime, $flightDay);
 
 
@@ -35,11 +40,7 @@
              $query->disconnectDB();
 
             //Say for instance you saved the wait time in $wait, to display it:
-<<<<<<< HEAD
 
-=======
- 
->>>>>>> cd4a49bebf476e64acce842ccfc488279a58b9fe
             //You can also echo html so it is displayed a certain way, like:
 
             echo "<h1>The wait time will be around ".$wait." minutes</h1>";
