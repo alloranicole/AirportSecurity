@@ -9,7 +9,7 @@
         <script type="text/javascript"
          src="jquery.mobile-1.4.5.min.js"></script>
 </head>
-<body>
+<body style="background-color: lightgrey;">
     <div style="background-color: rgb(0, 80, 116); color:white; padding:5px; margin:30px">
      <h1 style="text-align:center; font-family:Arial;"> Security Checkpoint Wait Time </h1>
    </div>
@@ -39,10 +39,17 @@
             //Say for instance you saved the wait time in $wait, to display it:
 
             //You can also echo html so it is displayed a certain way, like:
-
-            echo "<h1 border='1px solid black' padding='10px'>The wait time will be around ".$wait." minutes</h1>";
+  
+            
+  	?>
+            <h2 style="margin:30px; border:1px solid black; padding:5px; text-align:center;">The wait time will be around <?=$wait?> minutes.<br>		
+	   <div style="font-size:50%;">
+		Last Updated: DATE   <?=$wait?> 
+		</div>
+		  </h2>
+	<?php
         }else{
-            echo "A non Post request";
+            echo "<h2 style='margin:30px; text-align:center;'>A non Post request</h2>";
         }
         ?>
 </body>
