@@ -23,9 +23,6 @@
 
              //Create a flight class variable and input all this data in the 
              //Constructor
-  // ?>
-  //Stuff
-  // <?php
              $flightInfo = new flight($airport, $terminal, $flightTime, $flightDay);
 
 
@@ -43,7 +40,7 @@
 
             //You can also echo html so it is displayed a certain way, like:
 
-            echo "<h1>The wait time will be around ".$wait." minutes</h1>";
+            echo "<h1 border='1px solid black' padding='10px'>The wait time will be around ".$wait." minutes</h1>";
         }else{
             echo "A non Post request";
         }
