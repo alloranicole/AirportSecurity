@@ -62,26 +62,29 @@
       private $eTime;
       
       function set_endTime(){
-         $time = date('H:i:s', time());
-      	 $this->etime = strtotime($time);
+        // $time = date('H:i:s', time());
+      	// $this->etime = strtotime($time);
+        $this->eTime = time();
       }
 
       function set_startTime($start){
-      	 $this->stime = $start;
+      	 $this->sTime = $start;
       }
 
       function get_startTime(){
-         $time = date('H:i:s',time());
-         $this->sTime = strtotime($time);
+         //$time = date('H:i:s',time());
+         //$this->sTime = strtotime($time);
+         $this->sTime = time();
          return $this->sTime;
       }
 
       function get_totalWaitTime(){
          $diff = $this->eTime - $this->sTime;
-         $totalWaitTime = date('i',$diff);
-	 if($totalWaitTime > 120)
-            return 0;
-         else 
+         $totalWaitTime = $diff / 60; 
+        // $totalWaitTime = date('i',$diff);
+	// if($totalWaitTime > 120)
+          //  return 0;
+       //  else 
             return $totalWaitTime;
       }
     

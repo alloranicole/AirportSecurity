@@ -16,19 +16,6 @@
            src="airport.js"></script>
           <link rel="stylesheet" href="styles.css"/>
     </head>
-    <!-- <body>
-           This is the format for comments. Also this body section
-               is where you will put the form tag stuff. Also when you're
-               looking into the form tag remember our method is going to 
-               equal post and our action will equal whatever you name the
-               output php file. (Make sure the output is a php file.)
-               Other notes: Your output page will have this exact same 
-               format. The only difference is you will embed php here in 
-               these <body> tags. That means do the <?php ... ?> 
-               like you did for the classes. And don't forget to 
-               include our classes.php inside the php tags like the link
-               I sent you tells you to do. If you have any questions ask me.
-          -->
   <body style="background-color: lightgrey;">
    <div data-role ="page" id="input">
     <div data-role="header">
@@ -38,11 +25,11 @@
 
     <p style="text-align:center;"> Choose the airport code and the terminal or concourse. Then choose a day of the week and a time range of the flight.</p>
     </div>
-    <form name="airport" action="output.php" method="post" style="text-align:center;">
+    <form name="airport" id="airport" action="output.php" method="post" style="text-align:center;">
       <div id="container" class="floating-box">
         <div class="ribbon both_ribbon"></div>
         Airport: <br>
-        <select name="Airport" onchange="getTerminals(this);">
+        <select name="Airport" id="Airport" onchange="getTerminals(this);">
           <option value=""></option>
           <option value="BNA">Nashville International Airport</option>
           <option value="GSO">Piedmont Triad International Airport</option>
@@ -52,7 +39,7 @@
         <br><br>
         <span id="terminals"></span>
         Day of Flight: <br>
-        <select name="DayOfFlight">
+        <select name="DayOfFlight" id="DayOfFlight">
           <option value=""></option>
           <option value="Monday">Monday</option>
           <option value="Tuesday">Tuesday</option>
@@ -64,7 +51,7 @@
         </select>
         <br><br>
         Flight Time: <br>
-        <select name="FlightTime">
+        <select name="FlightTime" id="FlightTime">
           <option value=""></option>
           <option value="Morning">12:00AM - 11:00AM</option>
           <option value="Afternoon">11:00AM - 4:00PM</option>
@@ -72,19 +59,20 @@
         </select>
         <br><br>
         <input type="submit" value="Submit">
-        <input type="button" onclick="waitTime(document.airport);" value="Input Wait Time">
+        <input type="button" onClick="waitTime();" value="Input Wait Time">
       </div>
     </form>
   </div>
+  <!--Wait Time Page-->
   <div data-role ="page" id="waitTime">
     <div data-role="header">
     <div style="background-color: rgb(0, 80, 116); color:white; padding:5px; margin:30px">
     <h1 style="text-align:center; font-family:Arial;"> Airport Security Wait Times </h1>
-   <a href="#input">HOME</a>
+    <a href="#input">HOME</a>
    </div>
-   <input type="button" value="Track Wait Time">
-   <input type="button" value="Stop Tracking">
-  </div>
+   </div>
+   <input type="button" value="Track Wait Time" onclick="track();">
+   <input type="button" value="Stop Tracking" onclick="stopTrack();">
   </div>
   </body>
 </html>

@@ -8,12 +8,24 @@ function getTerminals(form){
          )
 }
 
-function waitTime(form){
-        $.post(
+function waitTime(){
+        $.getJSON(
           'inputWait.php',
-          {"airport":form.Airport.value,
-           "terminal":form.Terminal.value,
-           "day":form.DayOfFlight.value,
-           "time":form.FlightTime.value}
-          )
+          {"airport":document.getElementById('Airport').value,
+           "terminal":document.getElementById('Terminal').value,
+           "day":document.getElementById('DayOfFlight').value,
+           "time":document.getElementById('FlightTime').value}
+          );
+          $.mobile.pageContainer.pagecontainer("change",
+                                              "#waitTime",
+                                              {transition: "flow"}
+                                             );
+}
+
+function track(){
+         $.getJSON('startTime.php');
+}
+
+function stopTrack(){
+         $.getJSON('totalTime.php');
 } 
