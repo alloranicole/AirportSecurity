@@ -12,7 +12,7 @@ function waitTime(){
         $.getJSON(
           'inputWait.php',
           {"airport":document.getElementById('Airport').value,
-           "terminal":document.getElementById('Terminal').value,
+           "terminal":document.getElementById('terminals').value,
            "day":document.getElementById('DayOfFlight').value,
            "time":document.getElementById('FlightTime').value}
           );

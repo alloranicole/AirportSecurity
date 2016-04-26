@@ -69,3 +69,21 @@ div.both_ribbon::after{
 .floating-box {
 	float: center;
 }
+.button{
+   font: bold 20px Arial;
+   text-align: center;
+   text-decoration: none;
+   width: 70px;
+   background-color: #EEEEEE;
+   color: #333333;
+   padding: 4px;
+   border-top: 1px solid #CCCCCC;
+   border-right: 1px solid #333333;
+   border-bottom: 1px solid #333333;
+   border-left: 1px solid #CCCCCC;
+}
+a:link {
+   background-color: transparent;
+   color: rgb(0, 80, 116);
+   text-decoration: none;
+}
