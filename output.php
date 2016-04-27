@@ -12,6 +12,9 @@
 <body style="background-color: lightgrey;">
     <div style="background-color: rgb(0, 80, 116); color:white; padding:5px; margin:30px">
      <h1 style="text-align:center; font-family:Arial;"> Security Checkpoint Wait Time </h1>
+    <div style="padding: 5px;">
+     <a class="buttons" href="template.html" style="background-color: white; color:rgb(0,80,116); border:4px solid white">HOME</a>
+   </div>
    </div>
   <?php
           include("classes.php");
