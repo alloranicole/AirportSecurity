@@ -13,7 +13,7 @@
     <div style="background-color: rgb(0, 80, 116); color:white; padding:5px; margin:30px">
      <h1 style="text-align:center; font-family:Arial;"> Security Checkpoint Wait Time </h1>
     <div style="padding: 5px;">
-     <a class="buttons" href="template.html" style="background-color: white; color:rgb(0,80,116); border:4px solid white">HOME</a>
+     <a class="buttons" href="index.html" style="background-color: white; color:rgb(0,80,116); border:4px solid white">HOME</a>
    </div>
    </div>
   <?php
@@ -37,6 +37,7 @@
 
              $query->connectToDB();
              $wait = $query->makeQuery();
+             $date = $query->modifiedLast();
              $query->disconnectDB();
 
             //Say for instance you saved the wait time in $wait, to display it:
@@ -47,7 +48,7 @@
   	?>
             <h2 style="margin:30px; border:1px solid black; padding:5px; text-align:center;">The wait time will be around <?=$wait?> minutes.<br>		
 	   <div style="font-size:50%;">
-		Last Updated: DATE   <?=$wait?> 
+		Last Updated: DATE   <?=$date?> 
 		</div>
 		  </h2>
 	<?php

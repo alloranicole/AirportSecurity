@@ -7,6 +7,8 @@
        $start = new clock();
        $time = $start->get_startTime(); 
        $_SESSION["start"] = $time;
+       $_SESSION["check"] = true; 
        logMsg($time);
+       echo json_encode("0");
     }
 ?>

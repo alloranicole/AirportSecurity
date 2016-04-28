@@ -35,6 +35,7 @@
                  var $query;
                  var $result;
                  var $dbconn;
+                 var $lastModified;
                  function __construct(flight $flightInfo){
                           $this->flight = $flightInfo;
                  }
@@ -46,11 +47,16 @@
                   $terminal = $this->flight->get_Terminal();
                   $day = $this->flight->get_DayOfFlight();
                   $time = $this->flight->get_FlightTime();
-                  $this->query = "Select AW.WaitTime from AverageWait as AW, AirportTerminals as AT, DateTime as DT where AW.AirTermID = AT.AirTermID and AW.DateTimeID = DT.DateTimeID and AT.AirportCode = '$airport' and AT.Terminal = '$terminal' and DT.Weekday = '$day' and DT.DayTime = '$time';";
+                  $this->query = "Select AW.WaitTime,AW.LastModified from AverageWait as AW, AirportTerminals as AT, DateTime as DT where AW.AirTermID = AT.AirTermID and AW.DateTimeID = DT.DateTimeID and AT.AirportCode = '$airport' and AT.Terminal = '$terminal' and DT.Weekday = '$day' and DT.DayTime = '$time';";
                    $this->result = $this->dbconn->query($this->query);
                    $myrow = $this->result->fetch_array();
                    $wTime = $myrow['WaitTime'];
+                   $date = strtotime($myrow['LastModified']);
+                   $this->lastModified = date("m.d.Y",$date);
                    return $wTime;
+                 }
+                 function modifiedLast(){
+                   return $this->lastModified; 
                  }
                  function disconnectDB(){
                    disconnectDB($this->dbconn);
@@ -62,8 +68,6 @@
       private $eTime;
       
       function set_endTime(){
-        // $time = date('H:i:s', time());
-      	// $this->etime = strtotime($time);
         $this->eTime = time();
       }
 
@@ -72,19 +76,16 @@
       }
 
       function get_startTime(){
-         //$time = date('H:i:s',time());
-         //$this->sTime = strtotime($time);
          $this->sTime = time();
          return $this->sTime;
       }
 
       function get_totalWaitTime(){
          $diff = $this->eTime - $this->sTime;
-         $totalWaitTime = $diff / 60; 
-        // $totalWaitTime = date('i',$diff);
-	// if($totalWaitTime > 120)
-          //  return 0;
-       //  else 
+         $totalWaitTime = $diff / 60;
+         if($totalWaitTime > 120)
+            return 0;
+         else 
             return $totalWaitTime;
       }
     
@@ -113,7 +114,7 @@
          $terminal = $this->flight->get_Terminal();
          $day = $this->flight->get_DayOfFlight();
          $time = $this->flight->get_FlightTime();
-         $this->query = "insert into ObservedWait(AirportCode,Terminal,Weekday,Daytime,WaitTime) values('$airport','$terminal','$day','$time','$this->wTime');";
+         $this->query = "insert into ObservedWait(AirportCode,Terminal,Weekday,Daytime,WaitTime,LastModified) values('$airport','$terminal','$day','$time','$this->wTime',now());";
          logMsg($this->query);             
          $this->result = $this->dbconn->query($this->query);
       }
@@ -128,12 +129,12 @@
           $this->result = $this->dbconn->query($this->query);
           $myrow = $this->result->fetch_array();
           logMsg($myrow['WaitTime']);
-          $time = $myrow['WaitTime'];
-          $time *= .75;
-          $wTime *= .25;
-          $time = ($time + $wTime)/2;
-          logMsg($time);
-          $this->query = "Update AverageWait as AW, AirportTerminals as AT, DateTime as DT set AW.WaitTime = '$time' where AW.AirTermID = AT.AirTermID and AW.DateTimeID = DT.DateTimeID and AT.AirportCode = '$airport' and AT.Terminal = '$terminal' and DT.Weekday = '$day' and DT.DayTime = '$time';";
+          $currentTime = $myrow['WaitTime'];
+          $currentTime *= .75;
+          $this->wTime *= .25;
+          $currentTime = ($currentTime + $this->wTime);
+          logMsg($currentTime);
+          $this->query = "Update AverageWait as AW, AirportTerminals as AT, DateTime as DT set AW.WaitTime = '$currentTime', AW.LastModified =now() where AW.AirTermID = AT.AirTermID and AW.DateTimeID = DT.DateTimeID and AT.AirportCode = '$airport' and AT.Terminal = '$terminal' and DT.Weekday = '$day' and DT.DayTime = '$time';";
           logMsg($this->query);             
           $this->result = $this->dbconn->query($this->query);
       }

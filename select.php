@@ -6,7 +6,7 @@
        $dbconn = connectToDB();
        $query = "SELECT Terminal FROM AirportTerminals where AirportCode = '$code';";
        $result = $dbconn->query($query);
-       $terminals = "Terminal/Concourse:<br><select name=\"Terminal\" style=\"width:150px;\">"; 
+       $terminals = "Terminal/Concourse:<br><select name=\"Terminal\" id=\"Terminal\" style=\"width:150px;\"><option value=\"\"></option>"; 
        if($myrow = $result->fetch_array()){
           do{
             $terminals .= "<option value=\"".$myrow['Terminal']."\">".$myrow['Terminal']."</option>\n";

@@ -1,7 +1,8 @@
 <?php
      include("classes.php");
      session_start();
-     if(isset($_SESSION["start"])){
+     if($_SESSION["check"]==true){
+       $_SESSION["check"]=false; 
        logMsg("inside of session in total");
        $end = new clock();
        $end->set_startTime($_SESSION["start"]);
@@ -17,5 +18,6 @@
           $wTime->averageWaitTime();
           $wTime->disconnectDB();
       }
+      echo json_encode("0");
     }
 ?>
