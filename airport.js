@@ -5,20 +5,13 @@ $(document).on(
     "#input",
     function(){
      $("#validate").html("");
-    // $("#Airport").val("");
+     $("#Airport").val("");
+     $("#Terminal").val("");
+     $("#DayOfFlight").val("");
+     $("#FlightTime").val("");
     }
 )
 
-/*$(document).on(
-    "pagechange",
-    "#input",
-    function(){
-     alert("Create");
-     $("#Airport").val("");
-     $("#Airport").selectmenu('refresh');
-     alert("After Create");
-    }
-)*/
 
 //When the wait time page is brought up 
 //the tracking buttons are shown again 
@@ -32,11 +25,6 @@ $(document).on(
     }
 )
 
-function clearForm(){ 
-    //$('select option:first-child').attr('selected','selected');
- //   document.getElementById('DayOfFlight').selectedIndex = 0;
-  //  document.getElementById('FlightTime').selectedIndex = 0;
-}
 
 //Function calls select.php to grab the 
 //terminals/concourses that go along with

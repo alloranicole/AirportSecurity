@@ -35,7 +35,7 @@
         <div id="validate"></div><!--div that holds messages from validate()-->
         Airport: <br>
 <!--creates Airport drop down menu-->
-        <select name="Airport" id="Airport" onchange="getTerminals(this);">
+        <select name="Airport" id="Airport" onchange="getTerminals(this);" data-role="none">
           <option value=""></option>
           <option value="BNA">Nashville International Airport</option>
           <option value="GSO">Piedmont Triad International Airport</option>
@@ -48,7 +48,7 @@
         <div id="terminals"></div>
         Day of Flight: <br>
 <!--creates drop down menu of days of the week-->
-        <select name="DayOfFlight" id="DayOfFlight">
+        <select name="DayOfFlight" id="DayOfFlight" data-role="none">
           <option value=""></option>
           <option value="Monday">Monday</option>
           <option value="Tuesday">Tuesday</option>
@@ -61,7 +61,7 @@
         <br><br>
         Flight Time: <br>
 <!--creates drop down menu of a range of times during the day-->
-        <select name="FlightTime" id="FlightTime">
+        <select name="FlightTime" id="FlightTime" data-role="none">
           <option value=""></option>
           <option value="Morning">12:00AM - 11:00AM</option>
           <option value="Afternoon">11:00AM - 4:00PM</option>
