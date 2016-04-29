@@ -51,8 +51,9 @@
 <!-- Styles the display of the wait time -->
            <h2 style="margin:30px; border:1px solid black; padding:5px; text-align:center;">The wait time will be around <?=$wait?> minutes.<br>
 	   <div style="font-size:50%;">
-		Last Updated: <?=$date}?> 
+		Last Updated: <?=$date?> 
 		</div>
 		  </h2>
+          <?php  } ?>
 </body>
 </html>
