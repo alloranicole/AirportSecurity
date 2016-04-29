@@ -32,7 +32,7 @@
     <form name="airport" id="airport" action="output.php" method="post" style="text-align:center;" onSubmit="return validate();">
       <div id="container" class="floating-box"> <!--container div-->
         <div class="ribbon both_ribbon"></div> <!--ribbon div-->
-        <div id="validate"></div>
+        <div id="validate"></div><!--div that holds messages from validate()-->
         Airport: <br>
 <!--creates Airport drop down menu-->
         <select name="Airport" id="Airport" onchange="getTerminals(this);">
@@ -89,6 +89,7 @@
     </div> <!--ends page header div-->
    </div> <!--ends header div-->
   <div id="track"> <!--track div-->
+    <!--Buttons that call functions from javascript to grab wait time-->
     <input type="button" value="Track Wait Time" onclick="track();">
     <input type="button" value="Stop Tracking" onclick="stopTrack();">
   </div> <!--ends track div-->

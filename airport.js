@@ -1,3 +1,5 @@
+//When the input page is brought up the validate
+//div is cleared out
 $(document).on(
     "pagebeforeshow",
     "#input",
@@ -18,6 +20,9 @@ $(document).on(
     }
 )*/
 
+//When the wait time page is brought up 
+//the tracking buttons are shown again 
+//and the text div is cleared again
 $(document).on(
     "pagebeforeshow",
     "#waitTime",
@@ -33,6 +38,11 @@ function clearForm(){
   //  document.getElementById('FlightTime').selectedIndex = 0;
 }
 
+//Function calls select.php to grab the 
+//terminals/concourses that go along with
+//airport code sent to the function
+//then they are displayed in the
+//terminals div
 function getTerminals(form){
          $.getJSON(
            'select.php',
@@ -43,6 +53,9 @@ function getTerminals(form){
          )
 }
 
+//Function validates the form 
+//makes sure all of the options have 
+//been selected
 function validate(){
          if(document.getElementById('Airport').value == ""){
              $('#validate').html("<b>Choose an Airport</b><br><br>");
@@ -60,6 +73,11 @@ function validate(){
          return true;
 }
 
+//Function first validates the form
+//then calls the inputWait.php to 
+//hold all of the information from 
+//the form and finally changes
+//to the wait time page
 function waitTime(){
       if(validate()){  
         $.getJSON(
@@ -69,7 +87,7 @@ function waitTime(){
            "day":document.getElementById('DayOfFlight').value,
            "time":document.getElementById('FlightTime').value}
           );
-          clearForm();
+         // clearForm();
           $.mobile.pageContainer.pagecontainer("change",
                                               "#waitTime",
                                               {transition: "flow"}
@@ -77,20 +95,27 @@ function waitTime(){
      }
 }
 
+//Function calls the startTime.php and 
+//saves the time that the user clicked 
+//the button, then tells the user
 function track(){
          $.getJSON('startTime.php',
                    function(data){
                      if(data == 0)
-                        $("#text").html("Began tracking security wait time."); 
+                        $("#text").html("<b>Began tracking security wait time.</b>"); 
                    }
                   );
 }
 
+//Function calls the totalTime.php
+//and grabs the time the user clicked
+//the button and saves the wait time
+//then hides the buttons and displays
+//a message 
 function stopTrack(){
          $.getJSON('totalTime.php',
                    function(data){
                     if(data == 0){
-                    //  document.getElementById('#track').style.display = "none";
                       $("#track").hide();
                       $("#text").html("Thank you for contributing!");
                     }    

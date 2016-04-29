@@ -1,14 +1,21 @@
 <?php
+  /*Name:
+    Date:
+    Class:
+    PHP Script to calculate the total wait time
+    and insert it into the database */
      include("classes.php");
      session_start();
+     //If the startTime.php has been called
      if($_SESSION["check"]==true){
        $_SESSION["check"]=false; 
-       logMsg("inside of session in total");
        $end = new clock();
        $end->set_startTime($_SESSION["start"]);
        $end->set_endTime();
        $totalTime = $end->get_totalWaitTime();
        logMsg($totalTime);
+       //If the totalTime returned is greater than 0, average it
+       //into the database
        if($totalTime > 0){
           $flight = new flight($_SESSION["airport"],$_SESSION["terminal"],$_SESSION["time"],$_SESSION["day"]);
           $wTime = new waitTime($flight);
@@ -18,6 +25,7 @@
           $wTime->averageWaitTime();
           $wTime->disconnectDB();
       }
+      //return to jQuery function
       echo json_encode("0");
     }
 ?>

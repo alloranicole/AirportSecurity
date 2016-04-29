@@ -1,7 +1,11 @@
-<!--Classes File-->
-
 <?php
-         require("utility.php");
+  /*Name: 
+    Date: 
+    Class:
+    PHP script holds all the classes 
+  */
+        //Connects to the functions for connecting to the database
+        require("utility.php");
 
 	//Flight Class
 	//Holds the values that the user inputs about the flight
@@ -19,7 +23,7 @@
                   $this->DayOfFlight = $dayOfFlight;
              }
 	    
-	     //Get functions
+	     //Get functions for each attribute
              function get_Airport(){
                   return $this->Airport;
              }
@@ -66,7 +70,8 @@
 		//Post-condition: $query holds the query message that was sent to the database
 		//This message includes variables from within the Instance Variable of the flight
 		//class $flight, $result holds the result from the query. The wait time from the 
-		//result is returned
+		//result is returned. And lastModified holds the date
+                //that the wait time was last modified
                  function makeQuery(){
                   $airport = $this->flight->get_Airport();
                   $terminal = $this->flight->get_Terminal();
@@ -88,7 +93,7 @@
                  }
 
 		//disconnectDB()
-		//Pre-condition: $dbconn is connected to the databse
+		//Pre-condition: $dbconn is connected to the database
 		//Post-condition: $dbconn is no longer connected to the database
                  function disconnectDB(){
                    disconnectDB($this->dbconn);
@@ -97,7 +102,7 @@
 
    //Clock Class
    //Holds a specific start and end time, then subtracts the two to get a total wait time,
-   //then sends it over to the wait time class, where it will be average into the database	
+   //this value is used in the wait time class, where it will be averaged into the database	
    class clock {
 
       private $sTime;
@@ -127,7 +132,7 @@
 
 	//get_totalWaitTime()
 	//Precondition: $totalWaitTime is not initialized
-	//Postcondition: $totalWaitTime holds $eTime - $sTime. $totalWaitTime is returned if
+	//Postcondition: $totalWaitTime holds ($eTime - $sTime)/60. $totalWaitTime is returned if
 	//the value is less than 120 minutes, otherwise, the function returns 0
       function get_totalWaitTime(){
          $diff = $this->eTime - $this->sTime;
@@ -175,7 +180,9 @@
 	//Precondition: $dbconn is connected to the database
 	//Postcondition: $query holds the query message that was sent to the databse. This message
 	//includes variables from within the Instance Variable of the Flight Class $flight, and
-	//the current wait time $wTime. $result holds the result from the query.
+	//the new wait time $wTime. The query saves the time of the request
+        //into LastModified
+        //$result holds the result from the query.
       function saveWaitTime(){
          $airport = $this->flight->get_Airport();
          $terminal = $this->flight->get_Terminal();
