@@ -16,30 +16,38 @@
            src="airport.js"></script>
           <link rel="stylesheet" href="styles.css"/>
     </head>
+
   <body style="background-color: lightgrey;">
-   <div data-role ="page" id="input">
-    <div data-role="header">
+   <div data-role ="page" id="input"> <!--page div-->
+    <div data-role="header"> <!--header div-->
+<!--div to style page title-->
     <div style="background-color: rgb(0, 80, 116); color:white; padding:5px; margin:30px">
     <h1 style="text-align:center; font-family:Arial;"> Airport Security Wait Times </h1>
     </div>
-
+<!--Directions for the user-->
     <p style="text-align:center;"> Choose the airport code and the terminal or concourse. Then choose a day of the week and a time range of the flight.</p>
-    </div>
+    </div><!--ends header div-->
+
+<!--creates html form-->
     <form name="airport" id="airport" action="output.php" method="post" style="text-align:center;" onSubmit="return validate();">
-      <div id="container" class="floating-box">
-        <div class="ribbon both_ribbon"></div>
+      <div id="container" class="floating-box"> <!--container div-->
+        <div class="ribbon both_ribbon"></div> <!--ribbon div-->
         <div id="validate"></div>
         Airport: <br>
+<!--creates Airport drop down menu-->
         <select name="Airport" id="Airport" onchange="getTerminals(this);">
           <option value=""></option>
           <option value="BNA">Nashville International Airport</option>
           <option value="GSO">Piedmont Triad International Airport</option>
           <option value="CLT">Charlotte Douglas International Airport</option>
           <option value="EWR">Newark International Airport</option>
+	  <option value="RDU">Raleigh-Durham Internaitonal Airport</option>
         </select>
         <br><br>
+<!--used to display terminals based on airport selected-->
         <div id="terminals"></div>
         Day of Flight: <br>
+<!--creates drop down menu of days of the week-->
         <select name="DayOfFlight" id="DayOfFlight">
           <option value=""></option>
           <option value="Monday">Monday</option>
@@ -52,6 +60,7 @@
         </select>
         <br><br>
         Flight Time: <br>
+<!--creates drop down menu of a range of times during the day-->
         <select name="FlightTime" id="FlightTime">
           <option value=""></option>
           <option value="Morning">12:00AM - 11:00AM</option>
@@ -59,26 +68,31 @@
           <option value="Night">4:00PM - 12:00AM</option>
         </select>
         <br><br>
+<!--Sumbit button-->
         <input type="submit" value="Submit">
+<!--Input Wait Time Button-->
         <input type="button" onClick="return waitTime();" value="Input Wait Time">
-      </div>
+      </div><!--ends container div-->
     </form>
-  </div>
+  </div> <!--ends page div-->
+
   <!--Wait Time Page-->
-  <div data-role ="page" id="waitTime">
-    <div data-role="header">
-    <div style="background-color: rgb(0, 80, 116); color:white; padding:5px; margin:30px">
-    <h1 style="text-align:center; font-family:Arial;"> Airport Security Wait Times </h1>
+  <div data-role ="page" id="waitTime" style="width:100vw;"> <!--div for page-->
+    <div data-role="header"> <!--div for header-->
+<!--div for page header-->
+     <div style="background-color: rgb(0, 80, 116); color:white; padding:5px; margin:30px;">
+        <h1 style="text-align:center; font-family:Arial;"> Airport Security Wait Times </h1>
+<!--button div for home button-->
     <div class="button">
-    <a href="#input">HOME</a>
-   </div>
-   </div>
-   </div>
-  <div id="track">
-   <input type="button" value="Track Wait Time" onclick="track();">
-   <input type="button" value="Stop Tracking" onclick="stopTrack();">
-  </div>
+       <a href="#input">HOME</a>
+    </div> <!--ends home button div-->
+    </div> <!--ends page header div-->
+   </div> <!--ends header div-->
+  <div id="track"> <!--track div-->
+    <input type="button" value="Track Wait Time" onclick="track();">
+    <input type="button" value="Stop Tracking" onclick="stopTrack();">
+  </div> <!--ends track div-->
    <div id="text"></div>
-  </div>
-  </body>
+  </div> <!--ends page div-->
+ </body>
 </html>
