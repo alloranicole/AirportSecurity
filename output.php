@@ -12,6 +12,9 @@
          src="jquery-2.2.0.min.js"></script>
         <script type="text/javascript"
          src="jquery.mobile-1.4.5.min.js"></script>
+          <script type="text/javascript" 
+           src="airport.js"></script>
+	 <link rel="stylesheet" href="styles.css" />
    </head>
 <body style="background-color: lightgrey;">
 <!--styles the header of the page-->
@@ -19,7 +22,7 @@
      <h1 style="text-align:center; font-family:Arial;"> Security Checkpoint Wait Time </h1>
 <!--creates and styles HOME button-->
     <div style="padding: 5px;">
-     <a class="buttons" href="#input" style="background-color: white; color:rgb(0,80,116); border:4px solid white">HOME</a>
+     <a class="buttons" href="index.html" style="background-color: white; color:rgb(0,80,116); border:4px solid white">HOME</a>
     </div>
    </div> <!--end header div-->
   <?php
