@@ -14,11 +14,13 @@ body{
 }
 
 input {
-	padding: 5px
+	padding: 5px;
+	width: 60vw;
 }
 
 select {
-	padding: 5px
+	padding: 5px;
+	width: 40%;
 }
 
 #container{
