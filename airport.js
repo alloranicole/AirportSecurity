@@ -95,7 +95,7 @@ function track(){
          $.getJSON('startTime.php',
                    function(data){
                      if(data == 0)
-                        $("#text").html("<b>Began tracking security wait time.</b>"); 
+                        $("#text").html("<h3 style= 'text-align:center;'> Began tracking security wait time.</h3>"); 
                    }
                   );
 }
@@ -110,7 +110,7 @@ function stopTrack(){
                    function(data){
                     if(data == 0){
                       $("#track").hide();
-                      $("#text").html("Thank you for contributing!");
+                      $("#text").html("<h3 style='text-align:center;'>Thank you for contributing!</h3>");
                     }    
                   }
           );
