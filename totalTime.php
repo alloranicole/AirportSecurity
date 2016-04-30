@@ -1,7 +1,7 @@
 <?php
-  /*Name:
-    Date:
-    Class:
+  /*Name: Taylor, Joanna, Alex
+    Date: 4/30/16
+    Class: CSC-3710
     PHP Script to calculate the total wait time
     and insert it into the database */
      include("classes.php");

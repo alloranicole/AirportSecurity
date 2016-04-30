@@ -1,7 +1,7 @@
 <?php
- /*Name:
-   Date: 
-   Class:
+ /*Name: Taylor, Joanna, Alex
+   Date: 4/30/16
+   Class: CSC-3710
    PHP Script to grab the terminals/concourses 
    from the database with the airport code */
      require("utility.php");

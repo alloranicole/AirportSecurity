@@ -1,7 +1,7 @@
 <?php
-  /*Name:
-    Date:
-    Class:
+  /*Name: Taylor, Joanna, Alex
+    Date: 4/30/16
+    Class: CSC-3710
     Input Wait Time php to save values from form when input 
     wait time button is clicked */
      require("utility.php");

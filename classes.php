@@ -1,7 +1,7 @@
 <?php
-  /*Name: 
-    Date: 
-    Class:
+  /*Name: Taylor, Joanna, Alex
+    Date: 4/30/16
+    Class: CSC-3710
     PHP script holds all the classes 
   */
         //Connects to the functions for connecting to the database

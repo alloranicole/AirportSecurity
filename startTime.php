@@ -1,7 +1,7 @@
 <?php
- /*Name:
-   Date: 
-   Class:
+ /*Name: Taylor, Joanna, Alex
+   Date: 4/30/16
+   Class: CSC-3710
    PHP script to grab the start time
    and set the check session varible to true */
      include("classes.php");

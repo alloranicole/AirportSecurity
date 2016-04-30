@@ -1,3 +1,8 @@
+/* Name: Taylor, Joanna, Alex
+ * Date: 4/30/16
+ * Class: CSC-3710
+ */
+
 //When the input page is brought up the validate
 //div is cleared out
 $(document).on(

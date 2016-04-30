@@ -1,8 +1,8 @@
 <?php
-/*Name: Taylor Anderson-Barkley
-  Date: 4-16-16
-  Class: CSC3410
-  Location: ~/tanderson/public_html/csc3410/utility.php */
+/*Name: Taylor, Joanna, Alex
+  Date: 4/30/16
+  Class: CSC3710
+*/
 function cleanInput($data) 
 { 
       $data = trim($data); 
